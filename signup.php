@@ -14,9 +14,9 @@ if (isset($_POST['uname']) && isset($_POST['emid']) && isset($_POST['rnum']) && 
         $_SESSION['error'] = 'Bad Email';
     }
     else
-      {
+      {   $pwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
           $stmt = $pdo->prepare('INSERT INTO User (user_name, email_id, roll_number,phone_number, pass_word) VALUES ( :us, :em, :rn, :pn, :pd)');
-
+          $pwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
           $stmt->execute(array(
                   ':us' => $_POST['uname'],
                   ':em' => $_POST['emid'],
@@ -24,7 +24,7 @@ if (isset($_POST['uname']) && isset($_POST['emid']) && isset($_POST['rnum']) && 
                   ':pn' => $_POST['pno'],
                   ':pd' => $_POST['pwd'],
           ));
-          $_SESSION['success']= "Signed Up successfully";
+          $_SESSION['success']= "Signed Up Successfully";
       }
     }
 

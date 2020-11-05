@@ -8,30 +8,29 @@ if (isset($_POST['cancel'])){
     return;
 }
 
-if (isset($_POST['user_name']) && isset($_POST['pass_word'])) {
-
+if (isset($_POST['roll_number']) && isset($_POST['pass_word'])) {
+    
     $stmt = $pdo->prepare('SELECT roll_number, user_name, pass_word FROM user WHERE roll_number = :rn');
     $stmt->execute(array(':rn' => $_POST['roll_number']));
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
     //password verification
     $flag = password_verify($_POST['pass_word'], $row['pass_word']);
-
+    
 
     if (($row !== false) && ($flag !== false)){
+        
 
         $_SESSION['name'] = $row['user_name'];
-    
         $_SESSION['roll_number'] = $row['roll_number'];
-    }
-    header("Location: home.php");
-    return;
+        header("Location:home.php");
+        return;
+}
 
 }
 
 ?>
 
-$flag = password_verify ( string $password , string $hash )
 
 
 
@@ -50,7 +49,7 @@ $flag = password_verify ( string $password , string $hash )
     <div id="container">
         <div class="card-header"><h3 class="text-center">LOGIN</h3></div>
             <div class="card-body" >
-                <form action=" " method="POST">
+                <form action="login.php" method="POST">
                     <p>
                     <label>Roll Number:</label>
                     <input type="text" name="roll_number" id="uname">

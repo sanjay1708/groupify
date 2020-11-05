@@ -1,22 +1,24 @@
 <?php
-sessionstart();
-require_once "pdo.php"
+session_start();
+require_once "pdo.php";
 
 if (isset($_POST['cancel'])){
     //Redirect to index page
-    header("Location:index.php");
+    header("Location:index.html");
     return;
 }
 
 if (isset($_POST['user_name']) && isset($_POST['pass_word'])) {
 
-    $isPasswordCorrect = password_verify($_POST['password'], $existingHashFromDb);
-
     $stmt = $pdo->prepare('SELECT roll_number, user_name, pass_word FROM user WHERE roll_number = :rn');
     $stmt->execute(array(':rn' => $_POST['roll_number']));
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    $flag = password_verify($_POST['pass_word'], $row['password']);
-    if ($row !== false) && ($flag !== false){
+
+    //password verification
+    $flag = password_verify($_POST['pass_word'], $row['pass_word']);
+
+
+    if (($row !== false) && ($flag !== false)){
 
         $_SESSION['name'] = $row['user_name'];
     
@@ -26,16 +28,6 @@ if (isset($_POST['user_name']) && isset($_POST['pass_word'])) {
     return;
 
 }
-
-$flag = password_verify ( $_POST['pass_word'] ,  );
-
-
-
-if ($row !== false) {
-
-    $_SESSION['name'] = $row['user_name'];
-
-    $_SESSION['roll_number'] = $row['roll_number'];
 
 ?>
 

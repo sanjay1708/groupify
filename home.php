@@ -94,6 +94,7 @@ $rows1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                                         <th class="border-0">Maximum Members</th>
                                                         <th class="border-0">Current Members</th>
                                                         <th class="border-0">Domain</th>
+                                                        <th class="border-0"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -122,14 +123,18 @@ $rows1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                                             echo "<td>";
                                                             echo( $row['domain'] );
                                                             echo "</td>";
-                                                            echo "</tr>";
+								
+							    echo("</td><td>");
+                                                           #echo('<a href="jointeam.php?team_id='.$row['team_id'].'">join</a>');
+                                                            echo('<a href="jointeam.php?team_id='.$row['team_id'].'" class="btn btn-outline-light float-right">Join</a>');
+                                                            echo("</td></tr>\n");
 							                            }
 
                                                     ?>
 
-                                                    <tr>
-                                                        <td colspan="9"><a href="jointeam.php" class="btn btn-outline-light float-right">Join a Team</a> <a href="createteam.php" class="btn btn-outline-light float-right">Create New Team</a></td>
-                                                    </tr>
+                                                <tr>
+                                                       <td colspan="9"> <!-- <a href="jointeam.php" class="btn btn-outline-light float-right">Join a Team</a> --><a href="createteam.php" class="btn btn-outline-light float-right">Create New Team</a></td>
+                                                    </tr> 
                                                 </tbody>
                                             </table>
                                         </div>

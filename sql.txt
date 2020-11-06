@@ -1,0 +1,6 @@
+// create database
+CREATE DATABASE groupify;
+
+//create user table
+
+CREATE TABLE USER (user_name varchar(14),email_id	varchar(320),roll_number varchar(10), phone_number	varchar(15),pass_word varchar(420) PRIMARY KEY (roll_number));

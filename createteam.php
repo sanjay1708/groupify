@@ -7,6 +7,8 @@ require_once "pdo.php";
         }
 $stmt1 = $pdo->query("SELECT user_name, email_id,roll_number from user");
 $rows1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+##header("Location:home.php");
+#if(isset($_POST['team_name']) && isset($_POST['leader_name']) && isset($_POST['max_users']) && isset($_POST['current_uses']) && isset($_POST['member1']) )
 if(isset($_POST['submit']))
 {    
         //sql statements
@@ -26,6 +28,8 @@ $stmt2->execute(array(
 );
 header("Location:home.php");
 }
+
+##header("Location:home.php");
 
 ?>
 <!DOCTYPE html>
@@ -116,14 +120,6 @@ header("Location:home.php");
 			</br>
                         <label><h3>Team Leader Name </label>
                         <input type="text" name="leader_name" id="member1_name" size=21px>
-                        </br>
-
-			<label><h3>Maximum Users</label>
-                        <input type="text" name="max_users" id="member1_name" size=21px>
-                        </br>
-
-			<label><h3>Current number of users</label>
-                        <input type="text" name="current_uses" id="member1_name" size=21px>
                         </br>
 
 			<label><h3>Domain</label>

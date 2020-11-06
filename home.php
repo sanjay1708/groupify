@@ -65,6 +65,13 @@ $rows1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
                                 <h2 class="pageheader-title">Dashboard </h2>
+                                <?php
+    if (isset($_SESSION['error']))
+      {
+          echo('<p style="color: red;">' . htmlentities($_SESSION['error']) . "</p>\n");
+          unset($_SESSION['error']);
+      }
+    ?>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">

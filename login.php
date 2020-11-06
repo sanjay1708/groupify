@@ -41,7 +41,7 @@ if (isset($_POST['roll_number']) && isset($_POST['pass_word'])) {
 </head>
 <body>
 <div class="card-header">
-        <h1 class="text-center">GROUPIFY</h1>
+        <h1 class="text-center"><a href="index.html">GROUPIFY</a></h1>
         <a class="signup-btn" href="Signup.php">SIGN UP</a>
     </div>
 
@@ -66,4 +66,5 @@ if (isset($_POST['roll_number']) && isset($_POST['pass_word'])) {
 </div>
 </body>
 </html>
+
 

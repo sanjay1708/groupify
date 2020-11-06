@@ -5,7 +5,7 @@ require_once "pdo.php";
         if (!isset($_SESSION["roll_number"])) {
 		header("Location: login.php");
         }
-$stmt = $pdo->query("SELECT team_id, team_name,leader_name ,max_users,current_uses,domain from team");
+$stmt = $pdo->query("SELECT team_id,team_name,leader_name,max_users,current_uses,domain from team");
 $stmt1 = $pdo->query("SELECT user_name, email_id,roll_number from user");
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $rows1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
@@ -102,9 +102,13 @@ $rows1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                                             echo "<tr><td>";
                                                             echo( $row['team_id'] );
                                                             echo "</td>";
+ 
+                                                            echo "<td>";
+                                                            echo( $row['team_name'] );
+                                                            echo "</td>";
 
                                                             echo "<td>";
-                                                            #echo( $row['team_name'] );
+                                                            echo( $row['leader_name'] );
                                                             echo "</td>";
 
                                                             echo "<td>";
@@ -112,7 +116,7 @@ $rows1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                                             echo "</td>";
 
                                                             echo "<td>";
-                                                           echo( $row['current_users'] );
+                                                            echo( $row['current_uses'] );
                                                             echo "</td>";
 
                                                             echo "<td>";

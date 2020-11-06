@@ -3,4 +3,6 @@ CREATE DATABASE groupify;
 
 //create user table
 
-CREATE TABLE USER (user_name varchar(14),email_id	varchar(320),roll_number varchar(10), phone_number	varchar(15),pass_word varchar(420) PRIMARY KEY (roll_number));
+CREATE TABLE user (user_name varchar(14), email_id varchar(320), roll_number varchar(10), phone_number varchar(15), pass_word varchar(420), PRIMARY KEY (roll_number) );
+CREATE TABLE team (team_id varchar(11), team_name varchar(20), leader_name varchar(20), max_users int(11), current_uses int(11), domain varchar(25), 	member1 varchar(20),member2 varchar(20),member3 varchar(20),member4 varchar(20), PRIMARY KEY (team_id) );
+

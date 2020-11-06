@@ -22,7 +22,7 @@ if (isset($_POST['uname']) && isset($_POST['emid']) && isset($_POST['rnum']) && 
                   ':em' => $_POST['emid'],
                   ':rn' => $_POST['rnum'],
                   ':pn' => $_POST['pno'],
-                  ':pd' => $_POST['pwd'],
+                  ':pd' => $pwd,
           ));
           $_SESSION['success']= "Signed Up Successfully";
       }
